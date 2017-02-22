@@ -1,6 +1,8 @@
 #include "xd60.h"
 #include "action_layer.h"
 
+qk_tap_dance_action_t tap_dance_actions[] = {};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   // 0: Base Layer

@@ -1,7 +1,13 @@
 #include "xd60.h"
 #include "action_layer.h"
 
-qk_tap_dance_action_t tap_dance_actions[] = {};
+enum {
+  A = 0
+};
+
+qk_tap_dance_action_t tap_dance_actions[] = {
+  [A]  = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_ESC)
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -9,17 +15,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KEYMAP(
       KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,   KC_5,   KC_6,   KC_7,   KC_8,   KC_9,    KC_0,    KC_MINS,  KC_EQL,  KC_BSLS,  KC_GRV,    \
       KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,   KC_O,    KC_P,    KC_LBRC,  KC_RBRC,           KC_BSPC,   \
-      F(0),    KC_A,    KC_S,    KC_D,    KC_F,   KC_G,   KC_H,   KC_J,   KC_K,   KC_L,    KC_SCLN, KC_QUOT,  KC_NO,             KC_ENT,    \
-      KC_LSFT, KC_NO,   KC_Z,    KC_X,    KC_C,   KC_V,   KC_B,   KC_N,   KC_M,   KC_COMM, KC_DOT,  KC_SLSH,  F(1),    KC_UP,    KC_DEL,    \
-      KC_LCTL, KC_LALT, KC_LGUI,                          KC_SPC,                          KC_RGUI, KC_RALT,  KC_LEFT, KC_DOWN,  KC_RIGHT),
+      TD(A),   KC_A,    KC_S,    KC_D,    KC_F,   KC_G,   KC_H,   KC_J,   KC_K,   KC_L,    KC_SCLN, KC_QUOT,  KC_NO,             KC_ENT,    \
+      KC_LSPO, KC_NO,   KC_Z,    KC_X,    KC_C,   KC_V,   KC_B,   KC_N,   KC_M,   KC_COMM, KC_DOT,  KC_SLSH,  KC_TRNS, KC_UP,    KC_DEL,    \
+      MO(1),   KC_LALT, KC_LGUI,                          KC_SPC,                          MO(1),   KC_RSPC,  KC_LEFT, KC_DOWN,  KC_RIGHT),
 
   // 1: Function Layer
   KEYMAP(
-      RESET,   KC_F1,   KC_F2,   KC_F3,   KC_F4,  KC_F5,  KC_F6,  KC_F7,  KC_F8,  KC_F9,   KC_F10,  KC_F11,   KC_F12,  KC_F13,   KC_F14,    \
-      KC_CAPS, KC_MPRV, KC_UP,   KC_MNXT, KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,   KC_NO,   KC_NO,    KC_NO,             KC_DEL,    \
-      F(0),    KC_LEFT, KC_DOWN, KC_RIGHT,KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,   KC_NO,   KC_NO,    KC_NO,             KC_ENT,    \
-      KC_LSFT, KC_NO,   KC_VOLD, KC_MUTE, KC_VOLU,KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_PGUP,  KC_INS,    \
-      KC_LCTL, KC_LALT, KC_LGUI,                          KC_MPLY,                         KC_RGUI, KC_RALT,  KC_HOME, KC_PGDOWN,KC_END),
+      RESET,   KC_F1,   KC_F2,   KC_F3,   KC_F4,  KC_F5,  KC_F6,   KC_F7,  KC_F8,   KC_F9,    KC_F10,  KC_F11,  KC_F12,  KC_F13,   KC_F14,    \
+      KC_CAPS, KC_P7,   KC_P8,   KC_P9,   KC_NO,  KC_NO,  KC_NO,   KC_NO,  KC_NO,   KC_NO,    KC_NO,   KC_NO,   KC_NO,             KC_DEL,    \
+      KC_NO,   KC_P4,   KC_P5,   KC_P6,   KC_NO,  KC_NO,  KC_LEFT, KC_UP,  KC_DOWN, KC_RIGHT, KC_NO,   KC_NO,   KC_NO,             KC_NO,    \
+      KC_NO,   KC_NO,   KC_P1,   KC_P2,   KC_P3,  KC_NO,  KC_NO,   KC_NO,  KC_NO,   KC_NO,    KC_NO,   KC_NO,   KC_MPLY, KC_VOLU,  KC_INS,    \
+      KC_TRNS, KC_NO,   KC_P0,                            KC_NO,                              KC_TRNS, KC_NO,   KC_MPRV, KC_VOLD,  KC_MNXT),
 
   // 2: RGB Layer
   KEYMAP(
@@ -32,10 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 // Custom Actions
-const uint16_t PROGMEM fn_actions[] = {
-    [0] = ACTION_LAYER_MOMENTARY(1),  // to Function Layer
-    [1] = ACTION_LAYER_MOMENTARY(2),  // to RGB Layer
-};
+const uint16_t PROGMEM fn_actions[] = {};
 
 // Macros
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
