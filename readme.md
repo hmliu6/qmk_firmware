@@ -23,6 +23,12 @@ This is a keyboard firmware based on the [tmk\_keyboard firmware](http://github.
 
 The project also includes community support for [lots of other keyboards](/keyboards/).
 
+## Resources
+
+* [Quantum Mechanical Keyboard Firmware](https://docs.qmk.fm/)
+* [TMG Keymap Generator](https://tkg.io/)
+* [XD60 Default Keyboard Layout](http://www.keyboard-layout-editor.com/#/gists/f249c49347e68c8b383a9ca16abd6623)
+
 ## Maintainers
 
 QMK is developed and maintained by Jack Humbert of OLKB with contributions from the community, and of course, [Hasu](https://github.com/tmk). The OLKB product firmwares are maintained by [Jack Humbert](https://github.com/jackhumbert), the Ergodox EZ by [Erez Zukerman](https://github.com/ezuk), and the Clueboard by [Zach White](https://github.com/skullydazed).
